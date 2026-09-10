@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 96 44% 98%;
+    --foreground: 150 30% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 150 30% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 150 30% 12%;
+    --primary: 146 63% 26%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 96 45% 91%;
+    --secondary-foreground: 146 50% 18%;
+    --muted: 100 24% 95%;
+    --muted-foreground: 145 10% 40%;
+    --accent: 43 92% 52%;
+    --accent-foreground: 32 60% 14%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 140 18% 87%;
+    --input: 140 18% 87%;
+    --ring: 146 63% 30%;
+    --chart-1: 146 63% 32%;
+    --chart-2: 43 92% 52%;
+    --chart-3: 168 55% 38%;
+    --chart-4: 96 45% 55%;
+    --chart-5: 24 80% 55%;
+    --radius: 0.85rem;
+    --sidebar-background: 146 30% 12%;
+    --sidebar-foreground: 96 30% 92%;
+    --sidebar-primary: 43 92% 52%;
+    --sidebar-primary-foreground: 32 60% 14%;
+    --sidebar-accent: 146 25% 20%;
+    --sidebar-accent-foreground: 96 30% 92%;
+    --sidebar-border: 146 20% 22%;
+    --sidebar-ring: 43 92% 52%;
+  }
+  .dark {
+    --background: 150 30% 7%;
+    --foreground: 96 20% 94%;
+    --card: 150 28% 10%;
+    --card-foreground: 96 20% 94%;
+    --popover: 150 28% 10%;
+    --popover-foreground: 96 20% 94%;
+    --primary: 146 55% 45%;
+    --primary-foreground: 150 30% 7%;
+    --secondary: 150 20% 18%;
+    --secondary-foreground: 96 20% 94%;
+    --muted: 150 18% 16%;
+    --muted-foreground: 140 10% 62%;
+    --accent: 43 92% 55%;
+    --accent-foreground: 32 60% 14%;
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 150 15% 20%;
+    --input: 150 15% 20%;
+    --ring: 146 55% 45%;
+    --chart-1: 146 55% 50%;
+    --chart-2: 43 92% 55%;
+    --chart-3: 168 55% 48%;
+    --chart-4: 96 45% 60%;
+    --chart-5: 24 80% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: hsla(0, 0%, 100%, 0.65);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+  .glass-dark {
+    background: hsla(150, 30%, 8%, 0.55);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+  .text-gradient {
+    background: linear-gradient(90deg, hsl(146 63% 30%), hsl(168 55% 40%));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .bg-hero-mesh {
+    background-image:
+      radial-gradient(at 12% 18%, hsla(146, 63%, 40%, 0.18) 0px, transparent 55%),
+      radial-gradient(at 85% 12%, hsla(43, 92%, 55%, 0.20) 0px, transparent 50%),
+      radial-gradient(at 78% 85%, hsla(168, 55%, 45%, 0.16) 0px, transparent 55%);
+  }
+  .scrollbar-thin::-webkit-scrollbar { width: 8px; height: 8px; }
+  .scrollbar-thin::-webkit-scrollbar-thumb { background: hsl(146 30% 80%); border-radius: 8px; }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-18px) rotate(2deg); }
+}
+@keyframes float-med {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+@keyframes blob {
+  0%, 100% { border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%; }
+  50% { border-radius: 58% 42% 37% 63% / 56% 59% 41% 44%; }
+}
+.animate-float-slow { animation: float-slow 7s ease-in-out infinite; }
+.animate-float-med { animation: float-med 5s ease-in-out infinite; }
+.animate-blob { animation: blob 12s ease-in-out infinite; }
+
+.leaflet-container { border-radius: 0.85rem; z-index: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float-slow, .animate-float-med, .animate-blob { animation: none; }
+}
